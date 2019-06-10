@@ -42,7 +42,6 @@ export default {
 
   computed: {
     isUserAuthorized () {
-      return this.$store.getters.isUserAuthorized
     }
   }
 }
