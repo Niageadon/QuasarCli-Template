@@ -1,26 +1,24 @@
 <template>
   <div>
-    <q-header  reveal bordered class="bg-deep-purple-10 text-white">
-      <q-toolbar>
-        <q-btn  dense flat round icon="menu" @click="drawer = !drawer"></q-btn>
+    <q-layout view="hHh lpR fff">
 
-        <q-toolbar-title>
-          <q-btn flat to="/AssociationsMethod"><q-icon  name="home"></q-icon></q-btn>
-          Boba app
-        </q-toolbar-title>
-        <q-btn v-if="!isUserAuthorized" class="" to="/Authentication">Login</q-btn>
-        <q-btn v-else class="" @click="logout" >Logout</q-btn>
-      </q-toolbar>
-    </q-header>
+      <q-header bordered class="bg-primary text-white">
+        <q-toolbar>
+          <q-btn dense flat round icon="menu" @click="drawer = !drawer"></q-btn>
 
-    <q-drawer v-model="drawer" side="left" overlay elevated>
-      <!-- drawer content -->
-      <div class="row q-gutter-md">
-        <q-btn class="col-11" to="/AssociationsMethod">AM</q-btn>
-        <q-btn class="col-11" to="/EmotionsRead">RE</q-btn>
-      </div>
-    </q-drawer>
+          <q-toolbar-title>
+            <q-avatar>
+              <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg" alt="">
+            </q-avatar>
+            Title
+          </q-toolbar-title>
+        </q-toolbar>
+      </q-header>
 
+      <q-drawer v-model="drawer" side="left" overlay bordered>
+        <!-- drawer content -->
+      </q-drawer>
+    </q-layout>
   </div>
 </template>
 
@@ -41,8 +39,7 @@ export default {
   },
 
   computed: {
-    isUserAuthorized () {
-    }
+
   }
 }
 </script>
