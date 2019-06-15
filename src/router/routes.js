@@ -1,5 +1,6 @@
 
 const routes = [
+  { path: '/Authentication', component: () => import('pages/system/authentication.vue') }
 
 ]
 

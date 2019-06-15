@@ -1,7 +1,9 @@
 <template>
   <q-layout  view="hhh lpR fFf" id="q-app">
     <drawer></drawer>
-    <router-view></router-view>
+    <q-page-container>
+      <router-view></router-view>
+    </q-page-container>
   </q-layout >
 </template>
 

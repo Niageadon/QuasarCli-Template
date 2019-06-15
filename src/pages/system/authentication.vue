@@ -1,5 +1,5 @@
 <template>
-  <div class="row justify-center">
+  <!--<div class="row justify-center">
     <q-card v-if="mode === 'Login'" class="col-md-7 col-xs-12 bg-blue-grey-3 q-mt-lg">
       <q-card-section class="text-h5">
         {{mode}} form
@@ -50,6 +50,9 @@
       </q-form>
     </q-card>
 
+  </div>-->
+  <div>
+    <h1>ff</h1>
   </div>
 </template>
 
@@ -61,27 +64,27 @@ export default {
       mode: 'Login',
       user: { email: '', password: '', secondPassword: '' },
       emailRules: [
-        val => val && val.length > 0 || 'Please type something',
-        val => /.+@.+/.test(val) || 'E-mail must be valid',
+        val => (val && val.length > 0) || 'Please type something',
+        val => /.+@.+/.test(val) || 'E-mail must be valid'
       ],
       passwordRuled: [
-        val => val && val.length > 0 || 'Please type something',
+        val => (val && val.length > 0) || 'Please type something',
         val => val === this.user.password
       ]
     }
   },
 
-  methods:{
-    doLogin(){
+  methods: {
+    doLogin () {
       this.$store.dispatch('login', this.user)
     },
-    doRegistration(){
+    doRegistration () {
       this.$store.dispatch('registerUser', this.user)
-    },
+    }
   },
 
-  computed:{
-    loading(){
+  computed: {
+    loading () {
       return this.$store.getters.LOADINGUSERINFO
     }
   }

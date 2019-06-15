@@ -1,28 +1,26 @@
 <template>
   <div>
-    <q-layout view="hHh lpR fff">
 
       <q-header bordered class="bg-primary text-white">
         <q-toolbar>
           <q-btn dense flat round icon="menu" @click="drawer = !drawer"></q-btn>
-
           <q-toolbar-title>
-            <q-avatar>
-              <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg" alt="">
-            </q-avatar>
-            Title
+            APP
           </q-toolbar-title>
+          <q-btn v-if="!isUserAuthorized" class="" to="/Authentication">Login</q-btn>
+          <q-btn v-else class="" @click="logout" >Logout</q-btn>
         </q-toolbar>
       </q-header>
 
       <q-drawer v-model="drawer" side="left" overlay bordered>
         <!-- drawer content -->
       </q-drawer>
-    </q-layout>
+
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: 'Toolbar',
   data () {
@@ -35,11 +33,10 @@ export default {
     logout () {
       this.$store.dispatch('logout')
     }
-
   },
 
   computed: {
-
+    ...mapGetters(['isUserAuthorized'])
   }
 }
 </script>
